@@ -9,7 +9,9 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Looper;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.util.regex.Matcher;
@@ -102,21 +104,21 @@ public class ExampleUtil {
 		NetworkInfo info = conn.getActiveNetworkInfo();
 		return (info != null && info.isConnected());
 	}
-
-//	public static String getImei(Context context, String imei) {
-//        String ret = null;
-//		try {
-//			TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-//            ret = telephonyManager.getDeviceId();
-//		} catch (Exception e) {
-//			Log.e(ExampleUtil.class.getSimpleName(), e.getMessage());
-//		}
-//		if (isReadableASCII(ret)){
-//            return ret;
-//        } else {
-//            return imei;
-//        }
-//	}
+	
+	public static String getImei(Context context, String imei) {
+		String ret = null;
+		try {
+			TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+			ret = telephonyManager.getDeviceId();
+		} catch (Exception e) {
+			Log.e(ExampleUtil.class.getSimpleName(), e.getMessage());
+		}
+		if (isReadableASCII(ret)) {
+			return ret;
+		} else {
+			return imei;
+		}
+	}
 	
 	private static boolean isReadableASCII(CharSequence string) {
 		if (TextUtils.isEmpty(string)) return false;

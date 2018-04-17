@@ -14,7 +14,7 @@ public class MyJPushMessageReceiver extends JPushMessageReceiver {
 	@Override
 	public void onTagOperatorResult(Context context, JPushMessage jPushMessage) {
 		Log.i("bqt", "onTagOperatorResult " + jPushMessage.toString());
-		TagAliasOperatorHelper.getInstance().onTagOperatorResult(context, jPushMessage);
+		TagAliasOperatorHelper.getInstance().onTagOperatorResult(context, jPushMessage);//
 		super.onTagOperatorResult(context, jPushMessage);
 	}
 	

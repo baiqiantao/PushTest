@@ -3,13 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/popLayoutId"
     style="@style/MyDialogStyle"
-    android:orientation="vertical"
     android:layout_width="280dp"
-    android:layout_height="250dp" >
+    android:layout_height="250dp"
+    android:orientation="vertical">
 
-        <WebView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/wvPopwin"/>
+    <WebView
+        android:id="@+id/wvPopwin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

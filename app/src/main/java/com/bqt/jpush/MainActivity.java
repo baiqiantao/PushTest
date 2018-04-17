@@ -36,9 +36,9 @@ public class MainActivity extends InstrumentedActivity implements OnClickListene
 	}
 	
 	private void initView() {
-//		TextView mImei = (TextView) findViewById(R.id.tv_imei);
-//		String udid = ExampleUtil.getImei(getApplicationContext(), "");
-//        if (null != udid) mImei.setText("IMEI: " + udid);
+		TextView mImei = (TextView) findViewById(R.id.tv_imei);
+		String udid = ExampleUtil.getImei(getApplicationContext(), "");
+        if (null != udid) mImei.setText("IMEI: " + udid);
 		
 		TextView mAppKey = findViewById(R.id.tv_appkey);
 		String appKey = ExampleUtil.getAppKey(getApplicationContext());
@@ -152,13 +152,14 @@ public class MainActivity extends InstrumentedActivity implements OnClickListene
 					String messge = intent.getStringExtra(KEY_MESSAGE);
 					String extras = intent.getStringExtra(KEY_EXTRAS);
 					StringBuilder showMsg = new StringBuilder();
-					showMsg.append(KEY_MESSAGE + " : " + messge + "\n");
+					showMsg.append(KEY_MESSAGE + " : ").append(messge).append("\n");
 					if (!ExampleUtil.isEmpty(extras)) {
-						showMsg.append(KEY_EXTRAS + " : " + extras + "\n");
+						showMsg.append(KEY_EXTRAS + " : ").append(extras).append("\n");
 					}
 					setCostomMsg(showMsg.toString());
 				}
 			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		}
 	}
