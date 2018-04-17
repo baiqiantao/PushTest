@@ -1,1 +1,1 @@
-include ':app', ':comp-push'
+include ':jpush', ':comp-push'
