@@ -9,7 +9,7 @@
         android:protectionLevel="signature"/>
 
     <!-- Required  一些系统要求的权限，如访问网络等-->
-    <uses-permission android:name="com.example.ichatsdkdemo.permission.JPUSH_MESSAGE"/>
+    <uses-permission android:name="com.bqt.jpush.permission.JPUSH_MESSAGE"/>
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
@@ -85,7 +85,7 @@
                 <action android:name="cn.jpush.android.ui.PushActivity"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="com.example.ichatsdkdemo"/>
+                <category android:name="com.bqt.jpush"/>
             </intent-filter>
         </activity>
 
@@ -106,8 +106,7 @@
         <provider
             android:name="cn.jpush.android.service.DataProvider"
             android:authorities="com.bqt.jpush.DataProvider"
-            android:exported="false"
-            />
+            android:exported="false"/>
 
         <!-- since 1.8.0 option 可选项。用于同一设备中不同应用的JPush服务相互拉起的功能。 -->
         <!-- 若不启用该功能可删除该组件，将不拉起其他应用也不能被其他应用拉起 -->
@@ -118,7 +117,7 @@
             tools:ignore="ExportedService">
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.DaemonService"/>
-                <category android:name="com.example.ichatsdkdemo"/>
+                <category android:name="com.bqt.jpush"/>
             </intent-filter>
 
         </service>
@@ -135,7 +134,7 @@
             android:exported="false">
             <intent-filter android:priority="1000">
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY"/>   <!--Required  显示通知栏 -->
-                <category android:name="com.example.ichatsdkdemo"/>
+                <category android:name="com.bqt.jpush"/>
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.USER_PRESENT"/>
@@ -168,7 +167,7 @@
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED"/> <!--Required  用户接收SDK通知栏信息的intent-->
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED"/> <!--Required  用户打开自定义通知栏的intent-->
                 <action android:name="cn.jpush.android.intent.CONNECTION"/><!-- 接收网络变化 连接/断开 since 1.6.3 -->
-                <category android:name="com.example.ichatsdkdemo"/>
+                <category android:name="com.bqt.jpush"/>
             </intent-filter>
         </receiver>
 
@@ -178,7 +177,7 @@
             tools:ignore="ExportedReceiver">
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE"/>
-                <category android:name="com.example.ichatsdkdemo"/>
+                <category android:name="com.bqt.jpush"/>
             </intent-filter>
         </receiver>
         <!-- Required  . Enable it you can get statistics data with channel -->
@@ -187,7 +186,7 @@
             android:value="developer-default"/>
         <meta-data
             android:name="JPUSH_APPKEY"
-            android:value="d652c1212c8c232c0df952c5"/> <!--  </>值来自开发者平台取得的AppKey-->
+            android:value="72012c5e6a1a752b4763405b"/> <!--  </>值来自开发者平台取得的AppKey-->
 
     </application>
 </manifest>

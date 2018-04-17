@@ -31,7 +31,6 @@ import static com.bqt.jpush.TagAliasOperatorHelper.TagAliasBean;
 import static com.bqt.jpush.TagAliasOperatorHelper.sequence;
 
 public class PushSetActivity extends InstrumentedActivity implements OnClickListener {
-	private static final String TAG = "JIGUANG-Example";
 	
 	@Override
 	public void onCreate(Bundle icicle) {
@@ -97,7 +96,7 @@ public class PushSetActivity extends InstrumentedActivity implements OnClickList
 	TagAliasCallback tagAlias = new TagAliasCallback() {
 		@Override
 		public void gotResult(int responseCode, String alias, Set<String> tags) {
-			Log.e(TAG, "responseCode:" + responseCode + ",alias:" + alias + ",tags:" + tags);
+			Log.e("bqt", "responseCode:" + responseCode + ",alias:" + alias + ",tags:" + tags);
 		}
 	};
 	
@@ -143,7 +142,7 @@ public class PushSetActivity extends InstrumentedActivity implements OnClickList
 	}
 	
 	/**===========================================================================**/
-	/**=========================TAG/ALIAS 相关=====================================**/
+	/**=========================tag/alias 相关=====================================**/
 	/**===========================================================================**/
 	
 	/**

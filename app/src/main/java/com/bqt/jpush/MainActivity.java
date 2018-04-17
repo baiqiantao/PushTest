@@ -15,10 +15,8 @@ import android.widget.Toast;
 import cn.jpush.android.api.InstrumentedActivity;
 import cn.jpush.android.api.JPushInterface;
 
-
-
-public class MainActivity extends InstrumentedActivity implements OnClickListener{
-
+public class MainActivity extends InstrumentedActivity implements OnClickListener {
+	
 	private Button mInit;
 	private Button mSetting;
 	private Button mStopPush;
@@ -28,32 +26,33 @@ public class MainActivity extends InstrumentedActivity implements OnClickListene
 	private EditText msgText;
 	
 	public static boolean isForeground = false;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-		initView();   
+		initView();
 		registerMessageReceiver();  // used for receive msg
 	}
 	
-	private void initView(){
+	private void initView() {
 //		TextView mImei = (TextView) findViewById(R.id.tv_imei);
 //		String udid = ExampleUtil.getImei(getApplicationContext(), "");
 //        if (null != udid) mImei.setText("IMEI: " + udid);
-        
+		
 		TextView mAppKey = findViewById(R.id.tv_appkey);
 		String appKey = ExampleUtil.getAppKey(getApplicationContext());
 		if (null == appKey) appKey = "AppKey异常";
 		mAppKey.setText("AppKey: " + appKey);
-
+		
 		mRegId = findViewById(R.id.tv_regId);
 		mRegId.setText("RegId:");
-
-		String packageName =  getPackageName();
+		
+		String packageName = getPackageName();
 		TextView mPackage = findViewById(R.id.tv_package);
 		mPackage.setText("PackageName: " + packageName);
-
-		String deviceId =ExampleUtil.getDeviceId(getApplicationContext());
+		
+		String deviceId = ExampleUtil.getDeviceId(getApplicationContext());
 		TextView mDeviceId = findViewById(R.id.tv_device_id);
 		mDeviceId.setText("deviceId:" + deviceId);
 		
@@ -61,7 +60,7 @@ public class MainActivity extends InstrumentedActivity implements OnClickListene
 		TextView mVersion = findViewById(R.id.tv_version);
 		mVersion.setText("Version: " + versionName);
 		
-	    mInit = findViewById(R.id.init);
+		mInit = findViewById(R.id.init);
 		mInit.setOnClickListener(this);
 		
 		mStopPush = findViewById(R.id.stopPush);
@@ -69,71 +68,66 @@ public class MainActivity extends InstrumentedActivity implements OnClickListene
 		
 		mResumePush = findViewById(R.id.resumePush);
 		mResumePush.setOnClickListener(this);
-
+		
 		mGetRid = findViewById(R.id.getRegistrationId);
 		mGetRid.setOnClickListener(this);
-
+		
 		mSetting = findViewById(R.id.setting);
 		mSetting.setOnClickListener(this);
 		
 		msgText = findViewById(R.id.msg_rec);
 	}
-
 	
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.init:
-			init();
-			break;
-		case R.id.setting:
-			Intent intent = new Intent(MainActivity.this,PushSetActivity.class);
-			startActivity(intent);
-			break;
-		case R.id.stopPush:
-			JPushInterface.stopPush(getApplicationContext());
-			break;
-		case R.id.resumePush:
-			JPushInterface.resumePush(getApplicationContext());
-			break;
-		case R.id.getRegistrationId:
-			String rid = JPushInterface.getRegistrationID(getApplicationContext());
-			if (!rid.isEmpty()) {
-				mRegId.setText("RegId:" + rid);
-			} else {
-				Toast.makeText(this, "Get registration fail, JPush init failed!", Toast.LENGTH_SHORT).show();
-			}
-			break;
+			case R.id.init:
+				init();
+				break;
+			case R.id.setting:
+				Intent intent = new Intent(MainActivity.this, PushSetActivity.class);
+				startActivity(intent);
+				break;
+			case R.id.stopPush:
+				JPushInterface.stopPush(getApplicationContext());
+				break;
+			case R.id.resumePush:
+				JPushInterface.resumePush(getApplicationContext());
+				break;
+			case R.id.getRegistrationId:
+				String rid = JPushInterface.getRegistrationID(getApplicationContext());
+				if (!rid.isEmpty()) {
+					mRegId.setText("RegId:" + rid);
+				} else {
+					Toast.makeText(this, "Get registration fail, JPush init failed!", Toast.LENGTH_SHORT).show();
+				}
+				break;
 		}
 	}
 	
 	// 初始化 JPush。如果已经初始化，但没有登录成功，则执行重新登录。
-	private void init(){
-		 JPushInterface.init(getApplicationContext());
+	private void init() {
+		JPushInterface.init(getApplicationContext());
 	}
-
-
+	
 	@Override
 	protected void onResume() {
 		isForeground = true;
 		super.onResume();
 	}
-
-
+	
 	@Override
 	protected void onPause() {
 		isForeground = false;
 		super.onPause();
 	}
-
-
+	
 	@Override
 	protected void onDestroy() {
 		LocalBroadcastManager.getInstance(this).unregisterReceiver(mMessageReceiver);
 		super.onDestroy();
 	}
 	
-
 	//for receive customer msg from jpush server
 	private MessageReceiver mMessageReceiver;
 	public static final String MESSAGE_RECEIVED_ACTION = "MESSAGE_RECEIVED_ACTION";
@@ -148,9 +142,9 @@ public class MainActivity extends InstrumentedActivity implements OnClickListene
 		filter.addAction(MESSAGE_RECEIVED_ACTION);
 		LocalBroadcastManager.getInstance(this).registerReceiver(mMessageReceiver, filter);
 	}
-
+	
 	public class MessageReceiver extends BroadcastReceiver {
-
+		
 		@Override
 		public void onReceive(Context context, Intent intent) {
 			try {
@@ -164,16 +158,16 @@ public class MainActivity extends InstrumentedActivity implements OnClickListene
 					}
 					setCostomMsg(showMsg.toString());
 				}
-			} catch (Exception e){
+			} catch (Exception e) {
 			}
 		}
 	}
 	
-	private void setCostomMsg(String msg){
-		 if (null != msgText) {
-			 msgText.setText(msg);
-			 msgText.setVisibility(android.view.View.VISIBLE);
-         }
+	private void setCostomMsg(String msg) {
+		if (null != msgText) {
+			msgText.setText(msg);
+			msgText.setVisibility(android.view.View.VISIBLE);
+		}
 	}
-
+	
 }
