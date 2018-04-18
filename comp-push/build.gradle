@@ -27,4 +27,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation files('libs/jcore-android-1.2.0.jar')
     implementation files('libs/jpush-android-3.1.2.jar')
+    implementation 'org.greenrobot:eventbus:3.1.1'
 }
