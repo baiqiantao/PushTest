@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.bqt.push.FourActicity;
+import com.bqt.push.ThreeActicity;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -28,7 +31,10 @@ public class MainPushActivity extends ListActivity {
 				startActivity(new Intent(this, MiPushTestActivity.class));
 				break;
 			case 2:
-				
+				startActivity(new Intent(this, ThreeActicity.class));
+				break;
+			case 3:
+				startActivity(new Intent(this, FourActicity.class));
 				break;
 		}
 	}

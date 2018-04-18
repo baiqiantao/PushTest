@@ -1,0 +1,181 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:2:1-84:12
+INJECTED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:2:1-84:12
+INJECTED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:2:1-84:12
+INJECTED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:2:1-84:12
+INJECTED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:2:1-84:12
+INJECTED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:2:1-84:12
+INJECTED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:2:1-84:12
+	package
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:3:11-42
+		INJECTED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml
+		INJECTED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:2:1-84:12
+		INJECTED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:2:1-84:12
+		INJECTED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:5:5-80
+	android:name
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:5:22-78
+uses-permission#android.permission.INTERNET
+ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:6:5-66
+	android:name
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:6:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:7:5-78
+	android:name
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:7:22-76
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:8:5-75
+	android:name
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:8:22-73
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:9:5-74
+	android:name
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:9:22-72
+permission#com.xiaomi.mipushdemo.permission.MIPUSH_RECEIVE
+ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:11:5-13:46
+	android:protectionLevel
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:13:9-44
+	android:name
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:12:9-71
+uses-permission#com.xiaomi.mipushdemo.permission.MIPUSH_RECEIVE
+ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:15:5-86
+	android:name
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:15:22-84
+uses-permission#android.permission.VIBRATE
+ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:16:5-65
+	android:name
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:16:22-63
+application
+ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:18:5-82:19
+	android:icon
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:20:9-45
+	android:name
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:19:9-61
+activity#com.xiaomi.mipushdemo.MainActivity
+ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:22:9-30:20
+	android:label
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:24:13-45
+	android:name
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:23:13-62
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:25:13-29:29
+action#android.intent.action.MAIN
+ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:26:17-68
+	android:name
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:26:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:28:17-76
+	android:name
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:28:27-74
+service#com.xiaomi.push.service.XMJobService
+ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:32:9-37:45
+	android:process
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:37:13-43
+	android:enabled
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:34:13-35
+	android:exported
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:35:13-37
+	android:permission
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:36:13-69
+	android:name
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:33:13-64
+service#com.xiaomi.push.service.XMPushService
+ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:39:9-42:45
+	android:process
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:42:13-43
+	android:enabled
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:41:13-35
+	android:name
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:40:13-65
+service#com.xiaomi.mipush.sdk.PushMessageHandler
+ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:44:9-47:38
+	android:enabled
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:46:13-35
+	android:exported
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:47:13-36
+	android:name
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:45:13-68
+service#com.xiaomi.mipush.sdk.MessageHandleService
+ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:48:9-50:37
+	android:enabled
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:50:13-35
+	android:name
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:49:13-70
+receiver#com.xiaomi.mipushdemo.DemoMessageReceiver
+ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:52:9-64:20
+	android:exported
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:54:13-36
+	android:name
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:53:13-69
+intent-filter#action:name:com.xiaomi.mipush.RECEIVE_MESSAGE
+ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:55:13-57:29
+action#com.xiaomi.mipush.RECEIVE_MESSAGE
+ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:56:17-75
+	android:name
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:56:25-73
+intent-filter#action:name:com.xiaomi.mipush.MESSAGE_ARRIVED
+ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:58:13-60:29
+action#com.xiaomi.mipush.MESSAGE_ARRIVED
+ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:59:17-75
+	android:name
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:59:25-73
+intent-filter#action:name:com.xiaomi.mipush.ERROR
+ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:61:13-63:29
+action#com.xiaomi.mipush.ERROR
+ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:62:17-65
+	android:name
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:62:25-63
+receiver#com.xiaomi.push.service.receivers.NetworkStatusReceiver
+ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:65:9-73:20
+	android:exported
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:67:13-36
+	android:name
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:66:13-83
+intent-filter#action:name:android.net.conn.CONNECTIVITY_CHANGE+category:name:android.intent.category.DEFAULT
+ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:68:13-72:29
+action#android.net.conn.CONNECTIVITY_CHANGE
+ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:69:17-78
+	android:name
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:69:25-76
+category#android.intent.category.DEFAULT
+ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:71:17-75
+	android:name
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:71:27-73
+receiver#com.xiaomi.push.service.receivers.PingReceiver
+ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:74:9-81:20
+	android:process
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:77:13-43
+	android:exported
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:76:13-37
+	android:name
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:75:13-74
+intent-filter#action:name:com.xiaomi.push.PING_TIMER
+ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:78:13-80:29
+action#com.xiaomi.push.PING_TIMER
+ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:79:17-68
+	android:name
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml:79:25-66
+uses-sdk
+INJECTED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml
+INJECTED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml
+INJECTED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml
+INJECTED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml
+		INJECTED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml
+		ADDED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml
+		INJECTED from C:\Android\_coder\_workspace_as\JpushTest\mipush\AndroidManifest.xml

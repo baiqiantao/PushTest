@@ -33,4 +33,7 @@ dependencies {
     implementation files('libs/jpush-android-3.1.2.jar')
     implementation 'org.greenrobot:eventbus:3.1.1'
     implementation files('libs/MiPush_SDK_Client_3_6_2.jar')
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    compile 'com.jakewharton:butterknife:8.8.1'//2017-9-21最新版本
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'//编译器
 }
