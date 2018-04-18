@@ -1,15 +1,18 @@
-package com.bqt.push.jpush;
+package com.bqt.push.helper;
 
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
+import android.os.Process;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 
+import java.util.List;
 import java.util.regex.Pattern;
 
 import cn.jpush.android.api.JPushInterface;
@@ -72,5 +75,20 @@ public class PushUtil {
 	
 	public static String getDeviceId(Context context) {
 		return JPushInterface.getUdid(context);
+	}
+	
+	public static boolean shouldInitMiPush(Context context) {
+		ActivityManager am = ((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE));
+		if (am != null) {
+			List<ActivityManager.RunningAppProcessInfo> processInfos = am.getRunningAppProcesses();
+			String mainProcessName = context.getPackageName();
+			int myPid = Process.myPid();
+			for (ActivityManager.RunningAppProcessInfo info : processInfos) {
+				if (info.pid == myPid && mainProcessName.equals(info.processName)) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 }

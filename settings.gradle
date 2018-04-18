@@ -1,1 +1,1 @@
-include ':jpush', ':comp-push'
+include ':jpush', ':mipush', ':comp-push'

@@ -1,4 +1,4 @@
-package com.bqt.push;
+package com.bqt.push.testactivity;
 
 import android.app.ListActivity;
 import android.content.Intent;
@@ -7,12 +7,10 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.bqt.push.jpush.JpushMainActivity;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class MainActivity extends ListActivity {
+public class MainPushActivity extends ListActivity {
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -24,10 +22,10 @@ public class MainActivity extends ListActivity {
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		switch (position) {
 			case 0:
-				startActivity(new Intent(this, JpushMainActivity.class));
+				startActivity(new Intent(this, JPushTestActivity.class));
 				break;
 			case 1:
-				
+				startActivity(new Intent(this, MiPushTestActivity.class));
 				break;
 			case 2:
 				

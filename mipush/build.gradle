@@ -1,0 +1,40 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.bqt.jpush"
+        minSdkVersion 17
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+            jni.srcDirs = ['jni']
+            jniLibs.srcDirs = ['libs-cpufeatures', 'libs-zip']
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}

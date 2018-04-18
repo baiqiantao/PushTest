@@ -16,6 +16,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
 }
 
 dependencies {
@@ -28,4 +32,5 @@ dependencies {
     implementation files('libs/jcore-android-1.2.0.jar')
     implementation files('libs/jpush-android-3.1.2.jar')
     implementation 'org.greenrobot:eventbus:3.1.1'
+    implementation files('libs/MiPush_SDK_Client_3_6_2.jar')
 }

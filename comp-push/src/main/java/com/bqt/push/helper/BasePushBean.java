@@ -1,4 +1,4 @@
-package com.bqt.push;
+package com.bqt.push.helper;
 
 public class BasePushBean {
 	public static final int TYPE_STRING = 1;

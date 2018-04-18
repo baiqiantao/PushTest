@@ -1,4 +1,4 @@
-package com.bqt.push.jpush;
+package com.bqt.push.testactivity;
 
 import android.app.ListActivity;
 import android.graphics.Color;
@@ -8,7 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.bqt.push.BasePushBean;
+import com.bqt.push.helper.BasePushBean;
+import com.bqt.push.helper.PushUtil;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -19,7 +20,7 @@ import java.util.Arrays;
 
 import cn.jpush.android.api.JPushInterface;
 
-public class JpushMainActivity extends ListActivity {
+public class JPushTestActivity extends ListActivity {
 	
 	public static boolean isForeground = false;
 	
