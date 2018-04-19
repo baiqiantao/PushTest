@@ -19,6 +19,8 @@ allprojects {
     repositories {
         google()
         jcenter()
+
+        maven {url 'http://developer.huawei.com/repo'}//华为maven仓路径
     }
 }
 

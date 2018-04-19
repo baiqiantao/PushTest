@@ -23,7 +23,7 @@ public class MiPushReceiver extends PushMessageReceiver {
 	/*用来接收服务器向客户端发送的透传消息*/
 	public void onReceivePassThroughMessage(Context context, MiPushMessage message) {
 		if (message == null) return;
-		Log.i("bqt", "【onReceivePassThroughMessage】" + message.toString());
+		Log.i("bqt", "小米【onReceivePassThroughMessage】" + message.toString());
 		printMsg(message);
 		new Handler(Looper.getMainLooper()).post(() -> PushMsgReceiverHelper.getInstance().onMiPushMsgReceiver(message));
 	}
@@ -31,7 +31,7 @@ public class MiPushReceiver extends PushMessageReceiver {
 	@Override
 	/*用来接收服务器向客户端发送的通知消息，这个回调方法会在用户手动点击通知后触发*/
 	public void onNotificationMessageClicked(Context context, MiPushMessage message) {
-		Log.i("bqt", "【onNotificationMessageClicked】" + message.toString());
+		Log.i("bqt", "小米【onNotificationMessageClicked】" + message.toString());
 		printMsg(message);
 	}
 	
@@ -39,21 +39,21 @@ public class MiPushReceiver extends PushMessageReceiver {
 	/*用来接收服务器向客户端发送的通知消息，这个回调方法是在通知消息到达客户端时触发。
 	另外应用在前台时不弹出通知的通知消息到达客户端也会触发这个回调函数。*/
 	public void onNotificationMessageArrived(Context context, MiPushMessage message) {
-		Log.i("bqt", "【onNotificationMessageArrived】" + message.toString());
+		Log.i("bqt", "小米【onNotificationMessageArrived】" + message.toString());
 		printMsg(message);
 	}
 	
 	@Override
 	/*用来接收客户端向服务器发送命令后的响应结果*/
 	public void onCommandResult(Context context, MiPushCommandMessage message) {
-		Log.i("bqt", "【onCommandResult】" + message.toString());
+		Log.i("bqt", "小米【onCommandResult】" + message.toString());
 		printCmdMsg(message);
 	}
 	
 	@Override
 	/*用来接收客户端向服务器发送注册命令后的响应结果*/
 	public void onReceiveRegisterResult(Context context, MiPushCommandMessage message) {
-		Log.i("bqt", "【onReceiveRegisterResult】" + message.toString());
+		Log.i("bqt", "小米【onReceiveRegisterResult】" + message.toString());
 		String command = message.getCommand();
 		List<String> arguments = message.getCommandArguments();
 		String cmdArg1 = ((arguments != null && arguments.size() > 0) ? arguments.get(0) : null);

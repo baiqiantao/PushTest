@@ -1,1 +1,1 @@
-include ':jpush', ':mipush', ':comp-push'
+include ':comp-push', ':jpush', ':mipush', ':huapush'

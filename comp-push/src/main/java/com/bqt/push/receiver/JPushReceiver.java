@@ -26,37 +26,37 @@ public class JPushReceiver extends BroadcastReceiver {
 		if (intent == null || intent.getAction() == null) return;
 		
 		Bundle bundle = intent.getExtras();
-		Log.i("bqt", "【JPushReceiver】Action：" + intent.getAction() + "\nextras：" + printBundle(bundle));
+		Log.i("bqt", "极光【JPushReceiver】Action：" + intent.getAction() + "\nextras：" + printBundle(bundle));
 		
 		switch (intent.getAction()) {
 			case JPushInterface.ACTION_MESSAGE_RECEIVED://将自定义消息转发到需要的地方
-				Log.i("bqt", "【JPushReceiver】接收到推送下来的自定义消息");
+				Log.i("bqt", "极光【JPushReceiver】接收到推送下来的自定义消息");
 				if (bundle != null) {
 					PushMsgReceiverHelper.getInstance().onJPushMsgReceiver(bundle);
 				}
 				break;
 			case JPushInterface.ACTION_REGISTRATION_ID:
 				String regId = bundle == null ? "" : bundle.getString(JPushInterface.EXTRA_REGISTRATION_ID);
-				Log.i("bqt", "【JPushReceiver】接收Registration Id : " + regId);
+				Log.i("bqt", "极光【JPushReceiver】接收Registration Id : " + regId);
 				break;
 			case JPushInterface.ACTION_NOTIFICATION_RECEIVED:
-				Log.i("bqt", "【JPushReceiver】接收到推送下来的通知");
+				Log.i("bqt", "极光【JPushReceiver】接收到推送下来的通知");
 				int notifactionId = bundle == null ? -1 : bundle.getInt(JPushInterface.EXTRA_NOTIFICATION_ID);
-				Log.i("bqt", "【JPushReceiver】接收到推送下来的通知的ID: " + notifactionId);
+				Log.i("bqt", "极光【JPushReceiver】接收到推送下来的通知的ID: " + notifactionId);
 				break;
 			case JPushInterface.ACTION_NOTIFICATION_OPENED:
-				Log.i("bqt", "【JPushReceiver】用户点击打开了通知");
+				Log.i("bqt", "极光【JPushReceiver】用户点击打开了通知");
 				break;
 			case JPushInterface.ACTION_RICHPUSH_CALLBACK:  // 根据 JPushInterface.EXTRA_EXTRA 的内容处理代码
 				String extra = bundle == null ? "" : bundle.getString(JPushInterface.EXTRA_EXTRA);
-				Log.i("bqt", "【JPushReceiver】用户收到到RICH PUSH CALLBACK: " + extra);
+				Log.i("bqt", "极光【JPushReceiver】用户收到到RICH PUSH CALLBACK: " + extra);
 				break;
 			case JPushInterface.ACTION_CONNECTION_CHANGE:
 				boolean connected = intent.getBooleanExtra(JPushInterface.EXTRA_CONNECTION_CHANGE, false);
-				Log.i("bqt", "【JPushReceiver】" + intent.getAction() + " connected state change to " + connected);
+				Log.i("bqt", "极光【JPushReceiver】" + intent.getAction() + " connected state change to " + connected);
 				break;
 			default:
-				Log.i("bqt", "【JPushReceiver】Unhandled intent - " + intent.getAction());
+				Log.i("bqt", "极光【JPushReceiver】Unhandled intent - " + intent.getAction());
 				break;
 		}
 	}

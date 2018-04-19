@@ -10,3 +10,5 @@
 .externalNativeBuild
 /.idea
 /.gradle
+/mipush/build
+/mipush/build/
