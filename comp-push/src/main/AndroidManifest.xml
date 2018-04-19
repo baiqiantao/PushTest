@@ -42,8 +42,6 @@
 
         <activity android:name=".testactivity.JPushTestActivity"/>
         <activity android:name=".testactivity.MiPushTestActivity"/>
-        <activity android:name=".ThreeActicity"/>
-        <activity android:name=".FourActicity"/>
 
         <!--========================= 极光推送需要注册的组件 start =========================-->
         <!-- User defined.  用户自定义的广播接收器-->
