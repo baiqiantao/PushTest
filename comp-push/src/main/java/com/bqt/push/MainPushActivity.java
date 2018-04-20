@@ -19,7 +19,7 @@ public class MainPushActivity extends ListActivity {
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		String[] array = {"JPush", "MiPush", "华为Push", "魅族为Push",};
+		String[] array = {"JPush演示", "MiPush演示", "华为Push演示", "魅族Push演示",};
 		setListAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<>(Arrays.asList(array))));
 	}
 	
