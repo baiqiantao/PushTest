@@ -21,6 +21,7 @@ allprojects {
         jcenter()
 
         maven {url 'http://developer.huawei.com/repo'}//华为maven仓路径
+        maven {url 'https://oss.jfrog.org/artifactory/oss-snapshot-local'}//魅族maven仓路径
     }
 }
 

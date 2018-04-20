@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.bqt.push">
+
+    <permission
+        android:name="com.bqt.push.push.permission.MESSAGE"
+        android:protectionLevel="signature"/>
+    <permission
+        android:name="com.bqt.push.permission.C2D_MESSAGE"
+        android:protectionLevel="signature"/>
+
+    <!-- 兼容flyme5.0以下版本-->
+    <uses-permission android:name="com.meizu.flyme.push.permission.RECEIVE"/>
+    <uses-permission android:name="com.bqt.push.push.permission.MESSAGE"/>
+    <!--  兼容flyme3.0配置权限-->
+    <uses-permission android:name="com.meizu.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.bqt.push.permission.C2D_MESSAGE"/>
+
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:supportsRtl="true">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!-- push应用定义消息receiver声明 -->
+        <receiver
+            android:name="com.bqt.push.MZPushReceiver"
+            tools:ignore="ExportedReceiver">
+            <intent-filter>
+                <!-- 接收push消息 -->
+                <action android:name="com.meizu.flyme.push.intent.MESSAGE"/>
+                <!-- 接收register消息 -->
+                <action android:name="com.meizu.flyme.push.intent.REGISTER.FEEDBACK"/>
+                <!-- 接收unregister消息-->
+                <action android:name="com.meizu.flyme.push.intent.UNREGISTER.FEEDBACK"/>
+                <!-- 兼容低版本Flyme3推送服务配置 -->
+                <action android:name="com.meizu.c2dm.intent.REGISTRATION"/>
+                <action android:name="com.meizu.c2dm.intent.RECEIVE"/>
+
+                <category android:name="com.bqt.push"/>
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

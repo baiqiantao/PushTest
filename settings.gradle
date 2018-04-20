@@ -1,1 +1,1 @@
-include ':comp-push', ':jpush', ':mipush', ':huapush'
+include ':comp-push', ':jpush', ':mipush', ':huapush', ':mzpush', ':mzpush'

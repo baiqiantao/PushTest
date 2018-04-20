@@ -9,23 +9,15 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Process;
 import android.telephony.TelephonyManager;
-import android.text.TextUtils;
 import android.util.Log;
 
-import com.bqt.push.APP;
 import com.bqt.push.huaweiagent.HMSAgent;
+import com.meizu.cloud.pushsdk.PushManager;
 import com.xiaomi.mipush.sdk.MiPushClient;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.lang.reflect.Method;
 import java.util.List;
-import java.util.Properties;
-import java.util.regex.Pattern;
 
 import cn.jpush.android.api.JPushInterface;
 
@@ -60,33 +52,17 @@ public class PushUtil {
 		}
 	}
 	
-	public static String getImei(Context context, String imei) {
-		String ret = null;
+	@SuppressLint({"MissingPermission", "HardwareIds"})
+	public static String getImei(Context context) {
 		try {
 			TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-			ret = telephonyManager.getDeviceId();
+			if (telephonyManager != null) {
+				return telephonyManager.getDeviceId();
+			}
 		} catch (Exception e) {
 			Log.e(PushUtil.class.getSimpleName(), e.getMessage());
 		}
-		if (isReadableASCII(ret)) {
-			return ret;
-		} else {
-			return imei;
-		}
-	}
-	
-	private static boolean isReadableASCII(CharSequence string) {
-		if (TextUtils.isEmpty(string)) return false;
-		try {
-			Pattern p = Pattern.compile("[\\x20-\\x7E]+");
-			return p.matcher(string).matches();
-		} catch (Throwable e) {
-			return true;
-		}
-	}
-	
-	public static String getDeviceId(Context context) {
-		return JPushInterface.getUdid(context);
+		return "";
 	}
 	
 	public static boolean shouldInitMiPush(Context context) {
@@ -96,6 +72,7 @@ public class PushUtil {
 			String mainProcessName = context.getPackageName();
 			int myPid = Process.myPid();
 			for (ActivityManager.RunningAppProcessInfo info : processInfos) {
+				Log.i("bqt", "pid=" + info.pid + "  processName=" + info.processName);
 				if (info.pid == myPid && mainProcessName.equals(info.processName)) {
 					return true;
 				}
@@ -104,46 +81,21 @@ public class PushUtil {
 		return false;
 	}
 	
-	public static boolean isEMUI2() {
-		Class<?>[] clsArray = new Class<?>[]{String.class};
-		Object[] objArray = new Object[]{"ro.build.version.emui"};
-		try {
-			@SuppressLint("PrivateApi") Class<?> SystemPropertiesClass = Class.forName("android.os.SystemProperties");
-			Method get = SystemPropertiesClass.getDeclaredMethod("get", clsArray);
-			String version = (String) get.invoke(SystemPropertiesClass, objArray);
-			Log.i("bqt", "EMUI version is:" + version);
-			return !TextUtils.isEmpty(version);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return false;
-	}
-	
-	public static boolean isEMUI() {
-		Properties prop = new Properties();
-		try {
-			prop.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
-		} catch (IOException e) {
-			e.printStackTrace();
-			return false;
-		}
-		return prop.getProperty("ro.build.hw_emui_api_level", null) != null;
-	}
-	
-	public static boolean isMIUI() {
-		Properties prop = new Properties();
-		try {
-			prop.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
-		} catch (IOException e) {
-			e.printStackTrace();
-			return false;
-		}
-		return prop.getProperty("ro.miui.ui.version.code", null) != null
-				|| prop.getProperty("ro.miui.ui.version.name", null) != null
-				|| prop.getProperty("ro.miui.internal.storage", null) != null;
-	}
-	
 	public static void initPushSdk(Application context) {
+		switch (SimpleDeviceUtils.getSystemType()) {
+			case SYS_MIUI:
+				initMiPush(context);
+				break;
+			case SYS_EMUI:
+				initHuaweiPush(context);
+				break;
+			case SYS_FLYME:
+				initMeizhuPush(context);
+				break;
+			default:
+				initJPush(context);
+				break;
+		}
 		initJPush(context);
 		initMiPush(context);
 		initHuaweiPush(context);
@@ -174,7 +126,8 @@ public class PushUtil {
 	}
 	
 	private static void initMeizhuPush(Application context) {
-	
+		String APP_ID = "";
+		String APP_KEY = "";
+		PushManager.register(context, APP_ID, APP_KEY);
 	}
-	
 }

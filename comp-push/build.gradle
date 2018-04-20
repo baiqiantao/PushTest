@@ -51,4 +51,5 @@ dependencies {
     implementation files('libs/jpush-android-3.1.2.jar')//极光推送
     implementation files('libs/MiPush_SDK_Client_3_6_2.jar')//小米推送
     implementation 'com.huawei.android.hms:push:2.6.0.301'//华为推送
+    implementation 'com.meizu.flyme.internet:push-internal:3.5.0@aar'//魅族推送
 }

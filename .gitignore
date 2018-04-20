@@ -12,3 +12,9 @@
 /.gradle
 /mipush/build
 /mipush/build/
+comp-push/push.keystore
+comp-push/src/main/java/com/bqt/push/MainPushActivity.java
+comp-push/src/main/java/com/bqt/push/huaweiagent/
+comp-push/src/main/java/com/bqt/push/receiver/HuaweiPushRevicer.java
+comp-push/src/main/java/com/bqt/push/testactivity/HuaweiPushActivity.java
+huapush/src/main/res/layout/

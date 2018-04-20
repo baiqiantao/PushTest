@@ -3,8 +3,9 @@ package com.bqt.push.helper;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.bqt.push.testactivity.HuaweiPushActivity;
+import com.bqt.push.testactivity.HuaweiPushTestActivity;
 import com.bqt.push.testactivity.JPushTestActivity;
+import com.bqt.push.testactivity.MZPushTestActivity;
 import com.bqt.push.testactivity.MiPushTestActivity;
 import com.xiaomi.mipush.sdk.MiPushMessage;
 
@@ -55,7 +56,7 @@ public class PushMsgReceiverHelper {
 	 */
 	public void onHuaweiPushMsgReceiver(String message) {
 		Log.i("bqt", "【华为推送】" + message);
-		if (HuaweiPushActivity.isForeground) {
+		if (HuaweiPushTestActivity.isForeground) {
 			EventBus.getDefault().post(new BasePushBean(message, BasePushBean.TYPE_STRING));
 		}
 	}
@@ -65,6 +66,8 @@ public class PushMsgReceiverHelper {
 	 */
 	public void onMeiZhuPushMsgReceiver(String message) {
 		Log.i("bqt", "【魅族推送】" + message);
+		if (MZPushTestActivity.isForeground) {
+			EventBus.getDefault().post(new BasePushBean(message, BasePushBean.TYPE_STRING));
+		}
 	}
-	
 }

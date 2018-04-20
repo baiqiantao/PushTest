@@ -1,6 +1,7 @@
 package com.bqt.push.testactivity;
 
 import android.app.ListActivity;
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -9,7 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.bqt.push.helper.BasePushBean;
-import com.bqt.push.helper.PushUtil;
+import com.bqt.push.huaweiagent.HMSAgent;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -18,41 +19,53 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import cn.jpush.android.api.JPushInterface;
-
-public class JPushTestActivity extends ListActivity {
+public class HuaweiPushTestActivity extends ListActivity {
 	
 	public static boolean isForeground = false;
 	
+	private TextView tv;
+	private String[] array;
+	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		TextView tv = new TextView(this);
+		tv = new TextView(this);
 		tv.setTextColor(Color.BLUE);
-		String string = "AppKey: " + PushUtil.getAppKey(this) + "\n" +
-				"IMEI: " + PushUtil.getImei(this) + "\n" +
-				"RegId:" + JPushInterface.getRegistrationID(this) + "\n" +
-				"PackageName: " + getPackageName() + "\n" +
-				"DeviceId:" + JPushInterface.getUdid(this) + "\n" +
-				"Version: " + PushUtil.GetVersionName(this);
-		tv.setText(string);
-		getListView().addHeaderView(tv);
-		
-		String[] array = {"initPush", "stopPush", "resumePush",};
+		getListView().addFooterView(tv);
+		array = new String[]{"获取token",
+				"删除token",
+				" 获取push状态",
+				"设置是否接收普通透传消息",
+				"设置接收通知消息",
+				"显示push协议",};
 		setListAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<>(Arrays.asList(array))));
 		EventBus.getDefault().register(this);
 	}
 	
+	private boolean b;
+	
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
-		switch (position - 1) {
+		tv.append("\n" + array[position] + "  ");
+		b = !b;
+		switch (position) {
 			case 0:
-				JPushInterface.init(this);// 初始化 JPush。如果已经初始化，但没有登录成功，则执行重新登录。
+				HMSAgent.Push.getToken((rst) -> tv.append("+rst"));
 				break;
-			case 1:
-				JPushInterface.stopPush(this);
+			case 1://token=0990005841682350300001697200CN01  belongId=1
+				String token = getSharedPreferences("huawei_token", Context.MODE_PRIVATE).getString("token", null);
+				HMSAgent.Push.deleteToken(token, rst -> tv.append("" + rst));
 				break;
 			case 2:
-				JPushInterface.resumePush(this);
+				HMSAgent.Push.getPushState(rst -> tv.append("" + rst));
+				break;
+			case 3:
+				HMSAgent.Push.enableReceiveNormalMsg(b, rst -> tv.append(b + "   " + rst));
+				break;
+			case 4:
+				HMSAgent.Push.enableReceiveNotifyMsg(b, rst -> tv.append(b + "   " + rst));
+				break;
+			case 5:
+				HMSAgent.Push.queryAgreement(rst -> tv.append("" + rst));
 				break;
 		}
 	}
