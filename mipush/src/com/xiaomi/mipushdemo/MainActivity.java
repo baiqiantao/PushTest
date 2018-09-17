@@ -2,6 +2,7 @@ package com.xiaomi.mipushdemo;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -10,8 +11,11 @@ import android.widget.ListView;
 
 import com.xiaomi.mipush.sdk.MiPushClient;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * 1、设置 topic 和 alias。 服务器端使用 appsecret 即可以向demo发送广播和单点的消息。<br/>
@@ -32,6 +36,7 @@ public class MainActivity extends ListActivity {
 				"设置接收消息时间",
 				"暂停推送",
 				"重新开始推送",
+				"再打开一个页面：" + new SimpleDateFormat("yyyy.MM.dd HH:mm:ss SSS", Locale.getDefault()).format(new Date()),
 				"",};
 		setListAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<>(Arrays.asList(array))));
 	}
@@ -69,6 +74,9 @@ public class MainActivity extends ListActivity {
 				break;
 			case 8:
 				MiPushClient.resumePush(MainActivity.this, null);
+				break;
+			default:
+				startActivity(new Intent(this, MainActivity.class));
 				break;
 		}
 	}

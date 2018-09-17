@@ -9,10 +9,10 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <!-- the following 2 com.xiaomi.mipushdemo should be changed to your package name -->
     <permission
-        android:name="com.xiaomi.mipushdemo.permission.MIPUSH_RECEIVE"
+        android:name="${applicationId}.permission.MIPUSH_RECEIVE"
         android:protectionLevel="signature"/>
 
-    <uses-permission android:name="com.xiaomi.mipushdemo.permission.MIPUSH_RECEIVE"/>
+    <uses-permission android:name="${applicationId}.permission.MIPUSH_RECEIVE"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application

@@ -1,7 +1,10 @@
 package com.xiaomi.mipushdemo;
 
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.xiaomi.mipush.sdk.ErrorCode;
 import com.xiaomi.mipush.sdk.MiPushClient;
@@ -35,6 +38,12 @@ public class DemoMessageReceiver extends PushMessageReceiver {
 	public void onNotificationMessageClicked(Context context, MiPushMessage message) {
 		Log.i("bqt", "【onNotificationMessageClicked】" + message.toString());
 		printMsg(message);
+		Toast.makeText(context, "点击了通知", Toast.LENGTH_SHORT).show();
+		ComponentName componentName = new ComponentName(context.getPackageName(), "com.xiaomi.mipushdemo.MainActivity");
+		Intent intent = new Intent();
+		intent.setComponent(componentName);
+		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		context.startActivity(intent);
 	}
 	
 	@Override

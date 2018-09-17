@@ -6,28 +6,28 @@
     <!--====================== 推送SDK需要定义的权限【需要更改包名】 =====================-->
     <!--极光-->
     <permission
-        android:name="com.bqt.push.permission.JPUSH_MESSAGE"
+        android:name="${applicationId}.permission.JPUSH_MESSAGE"
         android:protectionLevel="signature"/>
-    <uses-permission android:name="com.bqt.push.permission.JPUSH_MESSAGE"/>
+    <uses-permission android:name="${applicationId}.permission.JPUSH_MESSAGE"/>
     <!--小米-->
     <permission
-        android:name="com.bqt.push.permission.MIPUSH_RECEIVE"
+        android:name="${applicationId}.permission.MIPUSH_RECEIVE"
         android:protectionLevel="signature"/>
-    <uses-permission android:name="com.bqt.push.permission.MIPUSH_RECEIVE"/>
+    <uses-permission android:name="${applicationId}.permission.MIPUSH_RECEIVE"/>
     <!--魅族-->
     <permission
-        android:name="com.bqt.push.push.permission.MESSAGE"
+        android:name="${applicationId}.push.permission.MESSAGE"
         android:protectionLevel="signature"/>
     <permission
-        android:name="com.bqt.push.permission.C2D_MESSAGE"
+        android:name="${applicationId}.permission.C2D_MESSAGE"
         android:protectionLevel="signature"/>
 
     <!-- 兼容flyme5.0以下版本-->
     <uses-permission android:name="com.meizu.flyme.push.permission.RECEIVE"/>
-    <uses-permission android:name="com.bqt.push.push.permission.MESSAGE"/>
+    <uses-permission android:name="${applicationId}.push.permission.MESSAGE"/>
     <!--  兼容flyme3.0配置权限-->
     <uses-permission android:name="com.meizu.c2dm.permission.RECEIVE"/>
-    <uses-permission android:name="com.bqt.push.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="${applicationId}.permission.C2D_MESSAGE"/>
     <!--华为(无)-->
 
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
@@ -61,7 +61,7 @@
         <!--========================= 极光推送需要注册的组件 start =========================-->
         <!-- User defined.  用户自定义的广播接收器-->
         <receiver
-            android:name="com.bqt.push.receiver.JPushReceiver"
+            android:name=".receiver.JPushReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
@@ -70,7 +70,7 @@
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED"/> <!--Required  用户接收SDK通知栏信息的intent-->
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED"/> <!--Required  用户打开自定义通知栏的intent-->
                 <action android:name="cn.jpush.android.intent.CONNECTION"/><!-- 接收网络变化 连接/断开 since 1.6.3 -->
-                <category android:name="com.bqt.push"/>
+                <category android:name="${applicationId}"/>
             </intent-filter>
         </receiver>
 
@@ -89,7 +89,7 @@
                 <action android:name="cn.jpush.android.ui.PushActivity"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="com.bqt.push"/>
+                <category android:name="${applicationId}"/>
             </intent-filter>
         </activity>
 
@@ -107,7 +107,7 @@
 
         <provider
             android:name="cn.jpush.android.service.DataProvider"
-            android:authorities="com.bqt.push.DataProvider"
+            android:authorities="${applicationId}.DataProvider"
             android:exported="false"/>
 
         <!-- 可选项。用于同一设备中不同应用的JPush服务相互拉起的功能。 -->
@@ -119,13 +119,13 @@
             tools:ignore="ExportedService">
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.DaemonService"/>
-                <category android:name="com.bqt.push"/>
+                <category android:name="${applicationId}"/>
             </intent-filter>
         </service>
 
         <provider
             android:name="cn.jpush.android.service.DownloadProvider"
-            android:authorities="com.bqt.push.DownloadProvider"
+            android:authorities="${applicationId}.DownloadProvider"
             android:exported="true"
             tools:ignore="ExportedContentProvider"/>
 
@@ -135,7 +135,7 @@
             android:exported="false">
             <intent-filter android:priority="1000">
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY"/>   <!--Required  显示通知栏 -->
-                <category android:name="com.bqt.push"/>
+                <category android:name="${applicationId}"/>
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.USER_PRESENT"/>
@@ -305,14 +305,14 @@
         <!-- 用于HMS-SDK引导升级HMS，提供给系统安装器读取升级文件，这边 要替换上您应用的包名-->
         <provider
             android:name="com.huawei.hms.update.provider.UpdateProvider"
-            android:authorities="com.bqt.push.hms.update.provider"
+            android:authorities="${applicationId}.hms.update.provider"
             android:exported="false"
             android:grantUriPermissions="true"/>
 
         <!-- 用于应用自升级，这边  要替换上您应用的包名-->
         <provider
             android:name="com.huawei.updatesdk.fileprovider.UpdateSdkFileProvider"
-            android:authorities="com.bqt.push.updateSdk.fileProvider"
+            android:authorities="${applicationId}.updateSdk.fileProvider"
             android:exported="false"
             android:grantUriPermissions="true">
         </provider>
@@ -340,7 +340,7 @@
                 <action android:name="com.meizu.c2dm.intent.REGISTRATION"/>
                 <action android:name="com.meizu.c2dm.intent.RECEIVE"/>
 
-                <category android:name="com.bqt.push"/>
+                <category android:name="${applicationId}"/>
             </intent-filter>
         </receiver>
         <!--========================= 魅族推送需要注册的组件 end =========================-->

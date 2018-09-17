@@ -17,6 +17,7 @@ import java.util.Arrays;
 
 public class MainPushActivity extends ListActivity {
 	
+	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		String[] array = {"JPush演示", "MiPush演示", "华为Push演示", "魅族Push演示",};
@@ -37,6 +38,8 @@ public class MainPushActivity extends ListActivity {
 				break;
 			case 3:
 				startActivity(new Intent(this, MZPushTestActivity.class));
+				break;
+			default:
 				break;
 		}
 	}

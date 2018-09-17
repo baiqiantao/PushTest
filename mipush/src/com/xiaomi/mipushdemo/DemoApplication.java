@@ -15,8 +15,8 @@ import java.util.List;
 
 public class DemoApplication extends Application {
 	
-	private static final String APP_ID = "1000270";
-	private static final String APP_KEY = "670100056270";
+	private static final String APP_ID = "2882303761517864915";//1000270
+	private static final String APP_KEY = "5221786477915";//670100056270
 	
 	// 此TAG在adb logcat中检索自己所需要的信息， 只需在命令行终端输入 adb logcat | grep com.xiaomi.mipushdemo
 	public static final String TAG = "com.xiaomi.mipushdemo";
