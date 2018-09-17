@@ -24,6 +24,7 @@ import java.util.Locale;
  */
 public class MainActivity extends ListActivity {
 	
+	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		String[] array = {"设置别名",

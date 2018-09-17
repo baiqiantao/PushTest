@@ -39,9 +39,8 @@ public class DemoMessageReceiver extends PushMessageReceiver {
 		Log.i("bqt", "【onNotificationMessageClicked】" + message.toString());
 		printMsg(message);
 		Toast.makeText(context, "点击了通知", Toast.LENGTH_SHORT).show();
-		ComponentName componentName = new ComponentName(context.getPackageName(), "com.xiaomi.mipushdemo.MainActivity");
 		Intent intent = new Intent();
-		intent.setComponent(componentName);
+		intent.setComponent(new ComponentName(context.getPackageName(), "com.xiaomi.mipushdemo.MainActivity"));
 		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		context.startActivity(intent);
 	}
